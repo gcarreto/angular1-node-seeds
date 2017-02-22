@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='holonisApp'>
+	<head>
+		<link href="/css/bootstrap/dist/css/bootstrap.min.css"
+	      rel="stylesheet" >
+		<link href="/css/main.css" rel="stylesheet">
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+	</head>
+	<body>
+	
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="/">Node register and authentication</a>
+				</div>
+			</div>
+		</nav>
+		
+		<div class="container main-content" ng-controller="RegistrationCtrl">
+			<form ng-submit="onSubmit()" novalidate="novalidate">
+				<div class="form-group">
+					<label for="name">Name</label>
+					<input type="text"
+						   class="form-control"
+						   ng-model="registrationModel.name"
+						   id="name">
+				</div>
+
+				<div class="form-group">
+					<label for="email">Email</label>
+					<input type="email"
+						   class="form-control"
+						   ng-model="registrationModel.email"
+						   id="email"
+						   required="required">
+				</div>
+
+				<div class="form-group">
+					<label for="username">Username</label>
+					<input type="text"
+						   class="form-control"
+						   ng-model="registrationModel.username"
+						   id="username"
+						   required="required">
+				</div>
+
+				<div class="form-group">
+					<label for="age">Age</label>
+					<input type="number"
+						   class="form-control"
+						   ng-model="registrationModel.age"
+						   id="age">
+				</div>
+
+				<div class="form-group">
+					<label for="gender">Gender</label>
+					<select name="gender"
+							id="gender"
+							ng-model="registrationModel.gender"
+							class="form-control">
+						<option value="">Please Choose</option>
+						<option value="male">Male</option>
+						<option value="female">Female</option>
+					</select>
+				</div>
+
+				<div class="form-group">
+					<label for="password">Password</label>
+					<input type="password"
+						   class="form-control"
+						   ng-model="registrationModel.password"
+						   id="password"
+						   required="required">
+				</div>
+
+				<div class="form-group">
+					<button class="btn btn-primary" type="submit">Register</button>
+				</div>
+			</form>
+			
+			<!--<pre>{{ registrationForm.email.$valid | json }}</pre>-->
+			
+			<h3>or login with:</h3><a href="/app/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook"></span> Facebook</a>
+			<!--<a href="/app/auth/facebook" class="btn btn-info"><span class="fa fa-twitter"></span> Twitter-->
+		</div>
+		<script src="/js/angular.js"></script>
+		<script src="/js/angular-auto-validate/dist/jcs-auto-validate.min.js" ></script >
+		<script src="/js/controllers.js"></script>
+	</body>
+</html>

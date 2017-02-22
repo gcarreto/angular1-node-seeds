@@ -1,0 +1,20 @@
+<!doctype html>
+<html ng-app='selectionApp'>
+	<head>
+		<script src="/js/angular.js"></script>
+		<script src="/js/RowSelectionController.js"></script>
+		<style>
+			.selected{
+				background-color: lightgreen;
+			}
+		</style>
+	</head>
+	<body>
+		<table ng-controller="RestaurantTableController">
+			<tr ng-repeat='restaurant in directory' ng-click='selectRestaurant($index)' ng-class='{selected:$index==selectedRow}'>
+				<td>{{restaurant.name}}</td>
+				<td>{{restaurant.cuisine}}</td>
+			</tr>
+		</table>
+	</body>
+</html>

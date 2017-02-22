@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+	<script src="/js/angular.js"></script>
+	<script src="/js/controllers.js"></script>
+</head>
+<body>
+<div ng-app="myModule" ng-controller="myController">
+	<p>{{hello}}</p>
+</div>
+<script type="text/javascript">
+	var srv = angular.module('myServices', []);
+	srv.constant('helloService', 'hello world');
+	var app = angular.module('myModule', ['myServices']);
+
+	app.controller('myController', function($scope, hello) {
+		$scope.hello = hello;
+	});
+
+</script>
+</body>
+</html>

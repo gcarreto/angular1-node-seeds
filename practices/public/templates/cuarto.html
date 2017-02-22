@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+	<script src="/js/angular.js"></script>
+	<script src="/js/controllers.js"></script>
+	<style type="text/css">
+		.active { font-weight:bold; color:red; }
+	</style>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+<ul>
+	<li ng-repeat="page in pages">
+		<a ng-href="#!{{page.url}}" ng-class="{ active : active(page.url) }">{{page.title}}</a>
+	</li>
+</ul>
+<script src="angular.js"></script>
+<script type="text/javascript">
+	var app = angular.module('myApp', []);
+	app.config(function($locationProvider) { $locationProvider.hashPrefix('!'); });
+	app.controller('myController', function($scope, $location) {
+		$scope.pages = [
+			{ url: '/page-a', title: 'Page A' },
+			{ url: '/page-b', title: 'Page B' },
+			{ url: '/page-c', title: 'Page C' }
+		];
+		$scope.active = function(url) { return url == $location.url(); };
+	});
+</script>
+</body>
+</html>

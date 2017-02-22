@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+    <script src="/js/angular.js"></script>
+    <title>Next meeting</title>
+</head>
+<body ng-app="myApp">
+<div ng-controller="myController">
+    The next meeting is from {{fromDate | date:dateFormat}} to {{toDate}}
+</div>
+<script type="text/javascript">
+    angular.module('myApp', [])
+            .controller('myController', function($scope, $filter) {
+                $scope.dateFormat = 'MM/dd/yyyy';
+                $scope.fromDate = new Date(2014,11,29);
+                $scope.toDate = $filter('date')(new Date(2014,11,31), $scope.dateFormat);
+            });
+</script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!doctype html>
+<html ng-app='controllerApp'>
+	<head>
+		<script src="/js/angular.js"></script>
+		<script src="/js/controllerCalculator.js"></script>
+	</head>
+	<body>
+		<!--<form ng-submit="requestFunding()" ng-controller="CalculatorController">-->
+		<form ng-controller="CalculatorController">
+			Starting: <input ng-change="computeNeeded()" ng-model="funding.startingEstimate">
+			Recommendation:{{funding.needed}}
+			<button ng-click="requestFunding()">Fund my startup!</button>
+			<button ng-click="reset()">Reset</button>
+		</form>
+	</body>
+</html>

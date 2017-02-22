@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+	<script src="/js/angular.js"></script>
+	<script src="/js/controllers.js"></script>
+</head>
+<body ng-app="myApp" ng-init="hello='Hello World'">
+<p>First line: {{hello | replace : 'World' : 'Universe' }}</p>
+<p>Second line: {{hello | replace }}</p>
+<p>Third line: {{hello | replace : 'World' }}</p>
+<script src="angular.js"></script>
+<script type="text/javascript">
+	var app = angular.module('myApp', []);
+	app.filter('replace', function() {
+		return function(input, search, replace) {
+			var result = '';
+			input = input || '';
+			if (search === undefined || replace === undefined) return input;
+			return input.replace(search, replace);
+		};
+	});
+</script>
+</body>
+</html>

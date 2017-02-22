@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+    <script src="/js/angular.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+<ul>
+    <li ng-repeat="p in list | slice : { start : 1, end : 4 }">{{p.name}}</li>
+</ul>
+<script src="angular.js"></script>
+<script type="text/javascript">
+    var app = angular.module('myApp', []);
+    app.controller('myController', function($scope) {
+        $scope.list = [
+            { id: 'a', name: 'cat' },
+            { id: 'b', name: 'dog' },
+            { id: 'c', name: 'bird' },
+            { id: 'd', name: 'parrot' },
+            { id: 'e', name: 'hamster' }
+        ];
+    });
+    app.filter('slice', function() {
+        return function(input, options) {
+            input = input || '';
+            var result = [];
+            var start = options.start || 0;
+            var end = options.end || input.length+1;
+            for (var i=start; i<end; i++) {
+                result.push(input[i]);
+            }
+            return result;
+        };
+    });
+</script>
+</body>
+</html>

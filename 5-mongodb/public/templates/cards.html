@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='holonisApp'>
+	<head>
+		<link href="/css/bootstrap/dist/css/bootstrap.min.css"
+	      rel="stylesheet" >
+		<link href="/css/main.css" rel="stylesheet">
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+	</head>
+	<body>
+	
+		<nav class="navbar navbar-inverse navbar-fixed-top" >
+			<div class="container" >
+				<div class="navbar-header">					
+					<a class="navbar-brand"
+					   href="/app/cards" >User cards information
+					</a>
+				</div>
+			</div>
+		</nav>
+	
+		<div class="container main-content" >
+
+			<div class="row">
+				<div class="col-md-8"  ng-controller="PersonsController">
+					<div class="row" >
+						<div class="col-md-12" >
+						
+							<div class="panel panel-default" ng-repeat="person in persons">
+								<div class="panel-heading" >Details</div >
+								<div class="panel-body">
+
+									<dl>
+										<dt >Name</dt >
+										<dd >{{person.name}}</dd >
+										<dt >Username</dt >
+										<dd >{{person.username}}</dd >
+										<dt >Email</dt >
+										<dd >{{person.email}}</dd >										
+										<dt >Phonenumber</dt >
+										<dd >{{person.phone}}</dd >
+										<dt >Address</dt >
+										<dd >{{person.address.streetA}}</dd >										
+										<dt >City</dt >
+										<dd >{{person.address.city}}</dd >
+										<dt >Country</dt >
+										<dd >{{person.address.country}}</dd >
+									</dl>
+
+								</div>
+							</div>
+							
+							<div infinite-scroll="getCards()" infinite-scroll-distance="1"></div>
+							
+						</div >
+					</div >
+
+				</div >
+				<div class="col-md-4"  ng-controller="PersonDetailController">
+
+					<div class="panel panel-default" >
+						<div class="panel-heading" >Details</div >
+						<div class="panel-body" >
+
+							<dl >
+								<dt >Name</dt >
+								<dd >{{contacts.selectedPerson.name}}</dd >
+								<dt >Email</dt >
+								<dd >{{contacts.selectedPerson.email}}</dd >
+								<dt >Birthday</dt >
+								<dd >{{contacts.selectedPerson.birthdate | date:"longDate"}}</dd >
+								<dt >Phonenumber</dt >
+								<dd >{{contacts.selectedPerson.phonenumber}}</dd >
+								<dt >Address</dt >
+								<dd >{{contacts.selectedPerson.address}}</dd >
+								<dt >City</dt >
+								<dd >{{contacts.selectedPerson.city}}</dd >
+								<dt >Country</dt >
+								<dd >{{contacts.selectedPerson.country}}</dd >
+							</dl >
+
+						</div >
+					</div >
+				</div >
+			</div >
+		</div >
+		
+		<script src="/js/angular.js"></script>
+		<script src="/js/angular-auto-validate/dist/jcs-auto-validate.min.js" ></script >
+		<script src="/js/ngInfiniteScroll/build/ng-infinite-scroll.min.js" ></script >
+		<script src="/js/controllers.js"></script>
+	</body>
+</html>

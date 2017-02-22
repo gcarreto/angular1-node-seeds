@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+    <script src="/js/angular.js"></script>
+</head>
+<body ng-app="myApp" ng-init="title='Title of the document'">
+<my-article title="Title of the article">
+    <p>My content is {{title}}</p>
+</my-article>
+<script type="text/javascript">
+    var app = angular.module('myApp', []);
+    app.directive('myArticle', function() {
+        return {
+            restrict: 'E',
+            transclude: true,
+            scope: { title : '@title' },
+            template: '<h2>{{title}}</h2><h3 ng-transclude></h3><h4>end of {{title}}</h4>'
+        };
+    });
+</script>
+</body>
+</html>

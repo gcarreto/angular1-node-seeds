@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+<head>
+    <script src="/js/angular.js"></script>
+</head>
+<body ng-app="myApp">
+<form id="myFormID" name="myForm">
+    <p><label for="userEmailID">Your email</label>
+        <input type="email" id="userEmailID" name="userEmail" ng-model="userEmail" required/>
+        <span ng-show="myForm.userEmail.$error['required']"4>(*) input required</span></p>
+    <p><input type="submit"/></p>
+</form>
+<script type="text/javascript">
+    angular.module('myApp', []);
+</script>
+</body>
+</html>
